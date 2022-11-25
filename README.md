@@ -1,8 +1,6 @@
 # Template-computo-quarto
 
 [![build output](https://github.com/computorg/template-computo-quarto/workflows/build/badge.svg)](https://computorg.github.io/template-computo-quarto/)
-<!--[![Binder](https://binder.pangeo.io/badge_logo.svg)](https://mybinder.org/v2/gh/computorg/template-computo-Rmarkdown/main?urlpath=rstudio)-->
-
 
 Documentation and sample of a [Quarto-based](https://quarto.org) submission for the Computo journal (_requires that Quarto is installed on your computer_).
 
