@@ -30,7 +30,7 @@ jobs:
           version: pre-release
           tinytex: true
 
-    - name: Install Computo extension for Quarto
+      - name: Install Computo extension for Quarto
         run: |
             quarto add --no-prompt computorg/computo-quarto-extension
 
