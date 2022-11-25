@@ -4,49 +4,42 @@
 <!--[![Binder](https://binder.pangeo.io/badge_logo.svg)](https://mybinder.org/v2/gh/computorg/template-computo-Rmarkdown/main?urlpath=rstudio)-->
 
 
-Documentation and sample of a [Quarto-based](https://quarto.org) submission for the Computo journal.
+Documentation and sample of a [Quarto-based](https://quarto.org) submission for the Computo journal (_requires that Quarto is installed on your computer_).
 
-Shows how to automatically setup and build the HTML outputs, ready to submit to our peer-review platform.
+Shows how to automatically setup and build the HTML and PDF outputs, ready to submit to our peer-review platform.
 
 ## Process overview
 
-Submissions to Computo require both scientific content (typically equations, codes and figures) and a proof that this content is reproducible. This is achieved via the standard notebook systems available for R, Python and Julia (Quarto, Jupyter-book and Rmarkdown), coupled with the binder build system. 
+Submissions to Computo require both scientific content (typically equations, codes and figures) and a proof that this content is reproducible. This is achieved via [Quarto](https://quarto.org), which can be used on its own as a notebook system, but also to handle the standard notebook formats like ipynb or Rmarkdown. 
 
 A Computo submission is thus a git(hub) repository like this one typically containing 
 
 - the source of the notebook (a markdown file with metadata + a BibTeX + some statics files typically in `figs/`)
 - configuration files for the binder environment to build the final notebook files in HTML (`environment.yml`). 
 
-The following picture gives an overview of the process on the author's side:
-
-![Computo author process](https://computo.sfds.asso.fr/assets/img/computo_process_authors.png)
-
 ## Step-by-step procedure
 
 ### Step 0: setup a github repository
 
-Clone/copy this repo to use it as a starter for your own contributions.
+This can be simply achieved by using this repository as a template, via the "use this template" button on the top of this page.
 
-**Note**: _You can rename the .Rmd and .bib files at your convenience, but we suggest you to keep the name of the config files unchanged, unless you know what you are doing._
-
-Typical git manipulations involve the following commands (change `my_github_account` and `my_article_for_computo`): by doing so, you will keep changes from the computo template if need (optional)
-
-``` bash
-git clone https://github.com/computorg/template-computo-Rmarkdown.git
-git remote rm origin
-git remote add origin https://github.com/my_github_account/my_article_for_computo.git
-git remote add upstream https://github.com/computorg/template-computo-Rmarkdown
-```
+**Note**: _You can rename the files at your convenience, but we suggest you to keep the name of the config files unchanged, unless you know what you are doing._
 
 ### Step 1. write your contribution 
 
-Write your notebook as usual, as demonstrated in the `template-computo-quarto.qmd` sample.
+Write your notebook as usual, as demonstrated in the `template-computo-quarto.qmd` sample. More advanced featrues are examplfied [in this page](https://computo.sfds.asso.fr/computo-quarto-extension/) or in our [remake fo the t-SNE paper](https://computo.sfds.asso.fr/published-paper-tsne/)?
 
 **Note**: _Make sure that you are able to build your manuscript as a regular notebook on your system before proceeding to the next step._
 
-### Step 2: configure your binder environement
+The final rendering can be obtained on your local machine by adding the Computo extension for quarto as follows
 
-The file `environment.yml` tells binder how to setup the machine used to build your notebook with a conda environment. It must be configured to have all the dependencies required to run you notebook (R, Python, packages/feedstocks and system dependencies).
+```bash
+quarto add computorg/computo-quarto-extension
+```
+
+### Step 2: configure your environement
+
+The file `environment.yml` tells how to setup the machine used to build your notebook with a conda environment. It must be configured to have all the dependencies required to run you notebook (R/Python/Julia packages/feedstocks and system dependencies).
 
 The default uses conda-forge and includes a couple of popular Python and R packages, since quarto supports both 'knitr' and 'jupyter' to coompile your notebook:
 
@@ -67,7 +60,6 @@ dependencies:
 
 The available feedstocks (Python modules and R packages) for conda-forge are listed here: [https://conda-forge.org/feedstock-outputs/index.html](https://conda-forge.org/feedstock-outputs/index.html).
 
-
 ### Step 3: proof reproducibility
 
 It is now time to put everything together and check that your work is indeed reproducible! 
@@ -80,6 +72,8 @@ This action will
 - Set up conda with the Python and R dependencies specified in `environment.yml`
 - Render your qmd file to HTML
 - Deploy your HTML on a github page on the gh-page branch
+
+_It is all pre-setup for you, so you hopefully don't need to modify, except if you change the name of your notebook: you must then set up the  'quarto_file' variable appropriately_
 
 ### Step 4. submit
 

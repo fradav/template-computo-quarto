@@ -19,18 +19,16 @@ jobs:
       - name: Checking out repository for Github action
         uses: actions/checkout@v2
 
-      - name: Installing dependencies with Miniconda
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Installing dependencies with Micromamba
+        uses: mamba-org/provision-with-micromamba@main
         with:
-          auto-update-conda: true
-          auto-activate-base: false
-          miniconda-version: 'latest'
-          python-version: 3.9
-          environment-file: environment.yml
-          activate-environment: computo
+          cache-env: true
 
       - name: Installing quarto
-        uses: quarto-dev/quarto-actions/install-quarto@v1
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
+          tinytex: true
 
       - name: Rendering with Quarto
         shell: bash -l {0}
@@ -38,7 +36,9 @@ jobs:
             quarto render ${{ env.quarto_file }}.qmd
             mkdir _build
             mv ${{ env.quarto_file }}.html _build/index.html
+            mv -vf ${{ env.quarto_file }}_files figures ${{ env.quarto_file }}.pdf _build/
             cp environment.yml _build/
+            touch _build/.nojekyll
 
       - name: Deploying article on github pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -46,5 +46,3 @@ jobs:
           BRANCH: gh-pages
           FOLDER: _build
           CLEAN: true
-        
-
