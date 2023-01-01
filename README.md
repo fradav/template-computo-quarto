@@ -66,16 +66,16 @@ To this end, you need to rely on a github action, whose default is found here: [
 
 This action will
 
-- Check out repository for Github action on a Mac OS machine
-- Set up conda with the Python and R dependencies specified in `environment.yml`
-- Render your qmd file to HTML
-- Deploy your HTML on a github page on the gh-page branch
+- Check out repository for Github action on a Ubuntu machine
+- Set up the Python and R dependencies specified in `environment.yml` with Micromambda
+- Render your qmd file to HTML and to PDF
+- Deploy your HTML (https://computorg.github.io/template-computo-quarto/) and PDF (https://computorg.github.io/template-computo-quarto/content.pdf) on a github page on the gh-page branch
 
 _It is all pre-setup for you, so you hopefully don't need to modify, except if you change the name of your notebook: you must then set up the  'quarto_file' variable appropriately_
 
 ### Step 4. submit
 
-Once step 3 is successful, you should end up with an HTML version published as a gh-page. A PDF file can be obtained by calling the printing function of your browser (using Chrome should facilitate the rendering). This PDF version can be submitted to the [Computo submission platform](https://computo.scholasticahq.com/):
+Once step 3 is successful, you should end up with an HTML version published as a gh-page and a PDF version named `content.pdf` at the root of the gh-page repository. This PDF version can be submitted to the [Computo submission platform](https://computo.scholasticahq.com/):
 
 <div id="scholastica-submission-button" style="margin-top: 10px; margin-bottom: 10px;"><a href="https://computo.scholasticahq.com/for-authors" style="outline: none; border: none;"><img style="outline: none; border: none;" src="https://s3.amazonaws.com/docs.scholastica/law-review-submission-button/submit_via_scholastica.png" alt="Submit to Computo"></a></div>
 
