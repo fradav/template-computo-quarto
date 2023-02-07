@@ -19,37 +19,29 @@ jobs:
       - name: Checking out repository
         uses: actions/checkout@v3
 
+      - name: Installing dependencies with Micromamba
+        uses: mamba-org/provision-with-micromamba@v14
+        with:
+          cache-env: true
+
       - name: Installing quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: true
-          version: pre-release # >=1.3 allow multiple doc format 
 
       - name: Install Computo extension for Quarto
         run: |
             quarto add --no-prompt computorg/computo-quarto-extension
 
-      - name: Installing dependencies with Micromamba
-        uses: mamba-org/provision-with-micromamba@main
-        with:
-          cache-env: true
-
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Rendering with Quarto
-      #   shell: bash -l {0}
-      #   run: |
-      #       quarto render ${{ env.quarto_file }}.qmd
-      #       mkdir _build
-      #       mv ${{ env.quarto_file }}.html _build/index.html
-      #       mv -vf ${{ env.quarto_file }}_files figures ${{ env.quarto_file }}.pdf _build/
-      #       cp environment.yml _build/
-      #       touch _build/.nojekyll
+      - name: Rendering with Quarto
+        shell: bash -l {0}
+        run: |
+            quarto render ${{ env.quarto_file }}.qmd
+            mkdir _build
+            mv ${{ env.quarto_file }}.html _build/index.html
+            mv -vf ${{ env.quarto_file }}_files figures ${{ env.quarto_file }}.pdf _build/
+            cp environment.yml _build/
+            touch _build/.nojekyll
 
       - name: Deploying article on github pages
         uses: JamesIves/github-pages-deploy-action@v4

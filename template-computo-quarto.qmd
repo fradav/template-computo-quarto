@@ -55,7 +55,7 @@ This document provides a template based on the [quarto system](https://quarto.or
 
 ## Advice for writting your manuscript
 
-First make sure that you are able to build your manuscript as a regular notebook on your system. Then you can start configure the binder environment.
+First make sure that you are able to build your manuscript as a regular notebook on your system.
 
 # Formatting
 
