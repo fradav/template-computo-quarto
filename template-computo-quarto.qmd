@@ -2,20 +2,29 @@
 title: "Template for contribution to Computo"
 subtitle: "Example based on the quarto system"
 author:
-  - name: "The Computo team"
+  - name: Jane Doe
     corresponding: true
-    email: computo@sfds.asso.fr
-    url: https://computo.sfds.asso.fr
+    email: janedoe@nowhere.moon
+    url: https://janedoe.someplace.themoon.org
     orcid: 0000-0000-0000-0000
+    acknowledgements: |
+      Jane Doe's acknowledgements
     affiliations:
-      - name: Société Française de Statistique
-        department: Statistique
-        address: IHP
-        city: Paris
-        country: France
-        postal-code: 75005
-        url: https://www.sfds.asso.fr/
+      - name: Name of Affiliation one
+        department: Statistics
+        url: https://someplace.themoon.org
+  - name: John Doe
+    email: johndoe@nowhere.moon
+    url: https://johndoe.someplace.themoon.org
+    orcid: 0000-0000-0000-0000
+    acknowledgements: |
+      John Doe's acknowledgements
+    affiliations:
+      - name: Name of Afficiliation two
+        department: Computer Science
+        url: https://someplace.themoon.org
 date: last-modified
+date-modified: last-modified
 description: |
   This document provides a template based on the quarto system for contributions to Computo, using the jounral extension and the knitr kernel (R user).
 abstract: >+
@@ -26,6 +35,8 @@ citation:
   container-title: "Computo"
   doi: "xxxx"
   url: https://computo.sfds.asso.fr/template-computo-quarto
+  publisher: "Société Française de Statistique"
+  issn: "2824-7795"
 bibliography: references.bib
 github-user: computorg
 repo: "template-computo-quarto"
@@ -229,6 +240,11 @@ page](https://quarto.org/docs/authoring/cross-references.html).
 
 [The template available in the Computo Quarto extension  ](https://computo.sfds.asso.fr/published-paper-tsne/) uses advanced features and the KnitR kernel (interactive plots and pseudocode). 
 
+:::
+
+# References {.unnumbered}
+
+::: {#refs}
 :::
 
 # Session information {.appendix .unnumbered}
