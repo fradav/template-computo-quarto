@@ -1,5 +1,7 @@
 *.swp
 _build
-content.html
-
+template-computo-quarto.html
+template-computo-quarto.pdf
+template-computo-quarto_files/
 /.quarto/
+_extensions/
