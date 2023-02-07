@@ -11,4 +11,5 @@ dependencies:
   - r-plotly
   - r-tidyverse
   - r-reticulate
+  - r-jsonlight
  
