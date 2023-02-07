@@ -16,13 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checking out repository for Github action
-        uses: actions/checkout@v2
-
-      - name: Installing dependencies with Micromamba
-        uses: mamba-org/provision-with-micromamba@main
-        with:
-          cache-env: true
+      - name: Checking out repository
+        uses: actions/checkout@v3
 
       - name: Installing quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -33,6 +28,11 @@ jobs:
       - name: Install Computo extension for Quarto
         run: |
             quarto add --no-prompt computorg/computo-quarto-extension
+
+      - name: Installing dependencies with Micromamba
+        uses: mamba-org/provision-with-micromamba@main
+        with:
+          cache-env: true
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
