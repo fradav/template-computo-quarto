@@ -8,7 +8,6 @@ on:
       - main
 
 env: # Change this if needed
-  quarto_file: template-computo-quarto
   GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -34,18 +33,11 @@ jobs:
             quarto add --no-prompt computorg/computo-quarto-extension
 
       - name: Rendering with Quarto
-        shell: bash -l {0}
-        run: |
-            quarto render ${{ env.quarto_file }}.qmd
-            mkdir _build
-            mv ${{ env.quarto_file }}.html _build/index.html
-            mv -vf ${{ env.quarto_file }}_files figures ${{ env.quarto_file }}.pdf _build/
-            cp environment.yml _build/
-            touch _build/.nojekyll
+        uses: quarto-dev/quarto-actions/render@v2          
 
       - name: Deploying article on github pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: gh-pages
-          FOLDER: _build
-          CLEAN: true
+          folder: _build
+          branch: gh-pages
+          clean: true

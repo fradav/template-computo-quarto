@@ -1,5 +1,17 @@
 project:
-  title: "template-computo-quarto"
+  title: template-computo-quarto
+  output-dir: _build
+  render: 
+    - template-computo-quarto.qmd
+  resources: 
+    - environment.yml
+    - .nojekyll
 
+execute: 
+  cache: true
+  freeze: true
 
-
+format:
+  computo-html: 
+    output-file: index.html
+  computo-pdf: default  

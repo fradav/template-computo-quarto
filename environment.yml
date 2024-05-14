@@ -12,3 +12,4 @@ dependencies:
   - r-tidyverse
   - r-reticulate
   - r-rmarkdown
+  - r-codetools
