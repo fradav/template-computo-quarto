@@ -7,9 +7,6 @@ on:
       - master
       - main
 
-env: # Change this if needed
-  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   computorticle:
     runs-on: ubuntu-latest
@@ -27,7 +24,7 @@ jobs:
         shell: bash -l {0}
         run: |
           echo $PATH > $GITHUB_PATH
-          
+
       - name: Installing quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
