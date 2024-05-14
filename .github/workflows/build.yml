@@ -20,10 +20,6 @@ jobs:
         with:
           cache-env: true
 
-      - name: Micromamba bash env
-        shell: bash -l {0}
-        run: |
-          echo $PATH > $GITHUB_PATH
 
       - name: Installing quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -33,7 +29,11 @@ jobs:
       - name: Install Computo extension for Quarto
         run: |
             quarto add --no-prompt computorg/computo-quarto-extension
-
+      - name: Micromamba bash env
+        shell: bash -l {0}
+        run: |
+          echo $PATH > $GITHUB_PATH
+    
       - name: Rendering with Quarto
         uses: quarto-dev/quarto-actions/render@v2          
 
