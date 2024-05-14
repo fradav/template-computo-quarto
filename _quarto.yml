@@ -9,7 +9,7 @@ project:
 
 execute: 
   cache: true
-  freeze: true
+  freeze: auto
 
 format:
   computo-html: 
