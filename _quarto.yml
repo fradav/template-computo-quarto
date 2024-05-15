@@ -1,6 +1,5 @@
 project:
   title: template-computo-quarto
-  output-dir: _build
   render: 
     - template-computo-quarto.qmd
   resources: 
