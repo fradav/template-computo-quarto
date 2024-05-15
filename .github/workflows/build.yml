@@ -26,10 +26,10 @@ jobs:
         with:
           tinytex: true
 
-      - name: Install Computo extension for Quarto
+      - name: Install Computo extension for Quarto + libertinus hack
         run: |
             quarto add --no-prompt computorg/computo-quarto-extension
-            tlmgr install libertinus-fonts
+            ~/.TinyTeX/bin/x86_64-linux/tlmgr install libertinus-fonts
 
       - name: register micromamba for reticulate
         shell: micromamba-shell {0}
