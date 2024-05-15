@@ -32,7 +32,7 @@ jobs:
             ~/.TinyTeX/bin/x86_64-linux/tlmgr install libertinus-fonts
 
       - name: install system dependencies
-        run: sudo apt update && sudo apt install -y libcurl4-openssl-dev
+        run: sudo apt update && sudo apt install -y libharfbuzz-dev libfribidi-dev libcurl4-openssl-dev
 
       - name: register micromamba for reticulate
         shell: micromamba-shell {0}
